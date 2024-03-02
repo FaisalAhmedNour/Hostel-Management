@@ -13,6 +13,9 @@ const DashboardLayout = () => {
         else if (pathname === '/rooms') {
             navigate('/rooms/occupancy')
         }
+        else if (pathname === '/students') {
+            navigate('/students/manegestudents')
+        }
     })
 
     return (

@@ -1,4 +1,4 @@
-import { Input, Button } from "@material-tailwind/react";
+import { Input } from "@material-tailwind/react";
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
@@ -7,7 +7,7 @@ const Hostels = () => {
         <div className="my-2 mr-2">
             <div className="w-[30%]">
                 <Input
-                    style={{ 'background-color': '[#141414]' }}
+                    style={{ 'background-color': '#141414' }}
                     className="bg-[#141414] border-none"
                     label="Search"
                     size="lg"

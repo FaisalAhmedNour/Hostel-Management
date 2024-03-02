@@ -4,10 +4,15 @@ import DashboardLayout from "../Layout/DashboardLayout/DashboardLayout";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import Students from "../Pages/Dashboard/Students/Students";
 import Rooms from "../Pages/Dashboard/Rooms/Rooms";
+import HostelRooms from "../Pages/MainRooms/Rooms/Rooms";
 import Complaints from "../Pages/Dashboard/Complaints/Complaints";
 import MainRooms from "../Pages/MainRooms/MainRooms";
 import Occupancy from "../Pages/MainRooms/Occupancy/Occupancy";
 import Hostels from "../Pages/MainRooms/Hostels/Hostels";
+import Furniture from "../Pages/MainRooms/Furniture/Furniture";
+import MainStudents from "../Pages/Students/MainStudents";
+import ManageStudents from "../Pages/Students/ManageStudents/ManageStudents";
+import AddStudents from "../Pages/Students/AddStudents/AddStudents";
 
 
 export const router = createBrowserRouter([
@@ -51,17 +56,27 @@ export const router = createBrowserRouter([
           },
           {
             path: 'rooms',
-            element: <Rooms />
+            element: <HostelRooms />
           },
           {
             path: 'furniture',
-            element: <Complaints />
+            element: <Furniture />
           },
         ]
       },
       {
         path: '/students',
-        element: <></>
+        element: <MainStudents />,
+        children: [
+          {
+            path: 'manegestudents',
+            element: <ManageStudents />
+          },
+          {
+            path: 'addstudents',
+            element: <AddStudents />
+          }
+        ]
       },
       {
         path: '/notice_board',

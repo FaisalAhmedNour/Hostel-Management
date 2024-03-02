@@ -84,6 +84,27 @@ const SideBar = () => {
                         </Typography>
                     </ul>
                 }
+                {
+                    page === 'students' &&
+                    <ul className="flex flex-col items-center">
+                        <Typography
+                            as="li"
+                            className={`font-medium w-full flex justify-start ${path === 'manegestudents' ? "bg-[#2e2e2e] text-white" : "hover:bg-[#272525] text-[#B0B0B0]"}`}
+                        >
+                            <Link className="w-full px-8 py-3" to="/students/manegestudents">
+                                Manage Students
+                            </Link>
+                        </Typography>
+                        <Typography
+                            as="li"
+                            className={`font-medium w-full flex justify-start ${path === 'addstudents' ? "bg-[#2e2e2e] text-white" : "hover:bg-[#272525] text-[#B0B0B0]"}`}
+                        >
+                            <Link className="w-full px-8 py-3" to="/students/addstudents">
+                                Add Students
+                            </Link>
+                        </Typography>
+                    </ul>
+                }
             </div>
         </div>
     );
