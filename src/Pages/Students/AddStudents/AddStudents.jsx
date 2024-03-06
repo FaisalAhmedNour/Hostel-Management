@@ -3,7 +3,7 @@ import {
     Button,
     Typography,
 } from "@material-tailwind/react";
-
+ 
 const AddStudents = () => {
     return (
         <div className="bg-[#202020] rounded-md p-2 mt-2 mr-2">

@@ -13,11 +13,26 @@ import Furniture from "../Pages/MainRooms/Furniture/Furniture";
 import MainStudents from "../Pages/Students/MainStudents";
 import ManageStudents from "../Pages/Students/ManageStudents/ManageStudents";
 import AddStudents from "../Pages/Students/AddStudents/AddStudents";
+import Signin from "../Pages/Signin/Signin";
+import Signup from "../Pages/Signup/Signup";
+import AddComplaints from "../Pages/Students/AddComplaints/AddComplaints";
+import Main from "../Layout/Main/Main";
+import Home from "../Pages/Home/Home";
 
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
+    element: <Main />,
+    children: [
+      {
+        path: '/',
+        element: <Home />
+      }
+    ]
+  },
+  {
+    path: "/dashboard",
     element: <DashboardLayout />,
     children: [
       {
@@ -43,7 +58,7 @@ export const router = createBrowserRouter([
         ]
       },
       {
-        path: '/rooms',
+        path: '/dashboard/rooms',
         element: <MainRooms />,
         children: [
           {
@@ -65,7 +80,7 @@ export const router = createBrowserRouter([
         ]
       },
       {
-        path: '/students',
+        path: '/dashboard/students',
         element: <MainStudents />,
         children: [
           {
@@ -75,14 +90,26 @@ export const router = createBrowserRouter([
           {
             path: 'addstudents',
             element: <AddStudents />
-          }
+          },
+          {
+            path: 'addcomplaints/:id',
+            element: <AddComplaints />
+          },
         ]
       },
       {
-        path: '/notice_board',
+        path: '/dashboard/notice_board',
         element: <></>
       },
     ],
+  },
+  {
+    path: 'signin',
+    element: <Signin />
+  },
+  {
+    path: 'signup',
+    element: <Signup />
   },
 ]);
 

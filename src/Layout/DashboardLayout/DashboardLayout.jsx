@@ -7,14 +7,14 @@ const DashboardLayout = () => {
     const { pathname } = useLocation()
     const navigate = useNavigate()
     useEffect(() => {
-        if (pathname === '/') {
+        if (pathname === '/dashboard') {
             navigate('/dashboard/analysis')
         }
-        else if (pathname === '/rooms') {
-            navigate('/rooms/occupancy')
+        else if (pathname === '/dashboard/rooms') {
+            navigate('/dashboard/rooms/occupancy')
         }
-        else if (pathname === '/students') {
-            navigate('/students/manegestudents')
+        else if (pathname === '/dashboard/students') {
+            navigate('/dashboard/students/manegestudents')
         }
     })
 

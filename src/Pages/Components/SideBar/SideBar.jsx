@@ -95,14 +95,22 @@ const SideBar = () => {
                                 Manage Students
                             </Link>
                         </Typography>
-                        <Typography
+                        {/* <Typography
                             as="li"
                             className={`font-medium w-full flex justify-start ${path === 'addstudents' ? "bg-[#2e2e2e] text-white" : "hover:bg-[#272525] text-[#B0B0B0]"}`}
                         >
                             <Link className="w-full px-8 py-3" to="/students/addstudents">
                                 Add Students
                             </Link>
-                        </Typography>
+                        </Typography> */}
+                        {/* <Typography
+                            as="li"
+                            className={`font-medium w-full flex justify-start ${path === 'addcomplaints' ? "bg-[#2e2e2e] text-white" : "hover:bg-[#272525] text-[#B0B0B0]"}`}
+                        >
+                            <Link className="w-full px-8 py-3" to="/students/addcomplaints">
+                                Add Complaints
+                            </Link>
+                        </Typography> */}
                     </ul>
                 }
             </div>

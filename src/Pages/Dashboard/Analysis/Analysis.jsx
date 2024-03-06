@@ -6,10 +6,10 @@ const Analysis = () => {
         <div className="my-2 grid grid-cols-4">
             <div className='col-span-3'>
                 <div className="bg-[#2e2e2e] rounded-md p-2">
-                    <p className="text-white flex items-center gap-1">Occupancy <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-up-right-from-square"><path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" /><path d="m21 3-9 9" /><path d="M15 3h6v6" /></svg></p>
+                    <p className="text-white flex items-center gap-1">Occupancy</p>
                     <div className="grid grid-cols-3 gap-2 p-2">
                         <div className="bg-[#111111] rounded-lg">
-                            <p className="text-white text-sm p-3 pb-0">Hostel 1</p>
+                            <p className="text-white text-sm p-3 pb-0">Hall 1</p>
                             <div className='px-12 pb-8'>
                                 <CircularProgressbar
                                     value={50}
@@ -29,7 +29,7 @@ const Analysis = () => {
                             </div>
                         </div>
                         <div className="bg-[#111111] rounded-lg">
-                            <p className="text-white text-sm p-3">Hostel 2</p>
+                            <p className="text-white text-sm p-3">Hall 2</p>
                             <div className='px-12 pb-8'>
                                 <CircularProgressbar
                                     value={75}
@@ -49,7 +49,7 @@ const Analysis = () => {
                             </div>
                         </div>
                         <div className="bg-[#111111] rounded-lg">
-                            <p className="text-white text-sm p-3">Hostel 3</p>
+                            <p className="text-white text-sm p-3">Hall 3</p>
                             <div className='px-12 pb-8'>
                                 <CircularProgressbar
                                     value={95}
@@ -71,7 +71,7 @@ const Analysis = () => {
                     </div>
                 </div>
                 <div className='bg-[#2e2e2e] rounded-md p-2 mt-2'>
-                    <p className="text-white flex items-center gap-1">Fees Collection <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-up-right-from-square"><path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" /><path d="m21 3-9 9" /><path d="M15 3h6v6" /></svg></p>
+                    <p className="text-white flex items-center gap-1">Fees Collection</p>
                     <div className='grid grid-cols-8 gap-5'>
                         <div className='p-3 col-span-2'>
                             <CircularProgressbar
@@ -127,15 +127,15 @@ const Analysis = () => {
                         <div className='bg-[#FFE605] '></div>
                     </div>
                     <div className='bg-[#111111] px-3 py-1 rounded-lg'>
-                        <p className='text-white text-sm flex gap-1'>Total Complaints<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-up-right-from-square"><path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" /><path d="m21 3-9 9" /><path d="M15 3h6v6" /></svg></p>
+                        <p className='text-white text-sm flex gap-1'>Total Complaint</p>
                         <p className='text-xl text-white'>158</p>
                     </div>
                     <div className='bg-[#111111] px-3 py-1 rounded-lg'>
-                        <p className='text-white text-sm flex gap-1'>Resolved<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-up-right-from-square"><path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" /><path d="m21 3-9 9" /><path d="M15 3h6v6" /></svg></p>
+                        <p className='text-white text-sm flex gap-1'>Resolve</p>
                         <p className='text-xl text-[#00FFF5]'>96</p>
                     </div>
                     <div className='bg-[#111111] px-3 py-1 rounded-lg'>
-                        <p className='text-white text-sm flex gap-1'>Open<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-up-right-from-square"><path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" /><path d="m21 3-9 9" /><path d="M15 3h6v6" /></svg></p>
+                        <p className='text-white text-sm flex gap-1'>Ope</p>
                         <p className='text-xl text-[#FFE605]'>62</p>
                     </div>
                 </div>
