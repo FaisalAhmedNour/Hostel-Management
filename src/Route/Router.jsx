@@ -18,6 +18,7 @@ import Signup from "../Pages/Signup/Signup";
 import AddComplaints from "../Pages/Students/AddComplaints/AddComplaints";
 import Main from "../Layout/Main/Main";
 import Home from "../Pages/Home/Home";
+import MainNoticeBoard from "../Pages/MainNoticeBoard/MainNoticeBoard";
 
 
 export const router = createBrowserRouter([
@@ -44,15 +45,15 @@ export const router = createBrowserRouter([
             element: <Analysis />
           },
           {
-            path: 'students',
+            path: 'mainstudents',
             element: <Students />
           },
           {
-            path: 'rooms',
+            path: 'mainrooms',
             element: <Rooms />
           },
           {
-            path: 'complaints',
+            path: 'maincomplaints',
             element: <Complaints />
           },
         ]
@@ -99,7 +100,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/dashboard/notice_board',
-        element: <></>
+        element: <MainNoticeBoard />
       },
     ],
   },

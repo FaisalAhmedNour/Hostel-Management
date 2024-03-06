@@ -1,9 +1,9 @@
 import React from "react";
 import {
     Navbar,
+    Button,
     MobileNav,
     Typography,
-    Button,
     IconButton,
 } from "@material-tailwind/react";
 import { Link, useLocation } from "react-router-dom";

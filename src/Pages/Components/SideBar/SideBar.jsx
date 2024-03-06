@@ -4,14 +4,14 @@ import { Typography } from "@material-tailwind/react";
 const SideBar = () => {
 
     const { pathname } = useLocation()
-    const path = pathname.split('/')?.[2];
-    const page = pathname.split('/')?.[1];
+    const path = pathname.split('/')?.[3];
+    const page = pathname.split('/')?.[2];
 
     return (
         <div className='h-full p-2'>
             <div className="bg-[#202020] rounded-md h-full overflow-hidden">
                 {
-                    page === 'dashboard' &&
+                    page === 'analysis' &&
                     <ul className="flex flex-col items-center">
                         <Typography
                             as="li"
@@ -25,7 +25,7 @@ const SideBar = () => {
                             as="li"
                             className={`font-medium w-full flex justify-start ${path === 'students' ? "bg-[#2e2e2e] text-white" : "hover:bg-[#272525] text-[#B0B0B0]"}`}
                         >
-                            <Link className="w-full px-8 py-3" to="/dashboard/students">
+                            <Link className="w-full px-8 py-3" to="/dashboard/mainstudents">
                                 Students
                             </Link>
                         </Typography>
