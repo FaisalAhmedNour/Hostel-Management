@@ -8,13 +8,16 @@ const DashboardLayout = () => {
     const navigate = useNavigate()
     useEffect(() => {
         if (pathname === '/dashboard') {
-            navigate('/dashboard/analysis')
+            navigate('/dashboard/main/analysis')
         }
         else if (pathname === '/dashboard/rooms') {
             navigate('/dashboard/rooms/occupancy')
         }
         else if (pathname === '/dashboard/students') {
             navigate('/dashboard/students/manegestudents')
+        }
+        else if (pathname === '/dashboard/notice_board') {
+            navigate('/dashboard/notice_board/list')
         }
     })
 

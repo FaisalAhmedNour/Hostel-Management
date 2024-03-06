@@ -49,7 +49,7 @@ const AddComplaints = () => {
                     <div className="mb-1">
                         <div className="flex">
                             <Typography variant="h6" color="white" className="w-40">
-                                Student Name
+                                Complaint
                             </Typography>
                             <div className="w-full">
                                 <Textarea

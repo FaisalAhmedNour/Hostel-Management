@@ -4,7 +4,7 @@ const Banner = () => {
     return (
         <div className="relative h-[90vh] w-full">
             <img
-                src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"
+                src="/banner.jpeg"
                 alt="image 1"
                 className="h-full w-full object-cover"
             />
@@ -15,26 +15,23 @@ const Banner = () => {
                         color="white"
                         className="mb-4 text-3xl md:text-4xl lg:text-5xl"
                     >
-                        Welcome
+                        Welcome to HallMaster!
                     </Typography>
                     <Typography
                         variant="lead"
                         color="white"
                         className="mb-12 opacity-80"
                     >
-                        It is not so much for its beauty that the forest makes a claim
-                        upon men&apos;s hearts, as for that subtle something, that quality
-                        of air that emanation from old trees, that so wonderfully changes
-                        and renews a weary spirit.
+                        We’re thrilled to have you here, whether you’re a student, faculty member, or guest. HostelHub is your digital companion for seamless hostel living.
                     </Typography>
-                    <div className="flex justify-center gap-2">
+                    {/* <div className="flex justify-center gap-2">
                         <Button size="lg" color="white">
                             Explore
                         </Button>
                         <Button size="lg" color="white" variant="text">
                             Gallery
                         </Button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

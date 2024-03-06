@@ -11,37 +11,37 @@ const SideBar = () => {
         <div className='h-full p-2'>
             <div className="bg-[#202020] rounded-md h-full overflow-hidden">
                 {
-                    page === 'analysis' &&
+                    page === 'main' &&
                     <ul className="flex flex-col items-center">
                         <Typography
                             as="li"
                             className={`font-medium w-full flex justify-start ${path === 'analysis' ? "bg-[#2e2e2e] text-white" : "hover:bg-[#272525] text-[#B0B0B0]"}`}
                         >
-                            <Link className="w-full px-8 py-3" to="/dashboard/analysis">
+                            <Link className="w-full px-8 py-3" to="/dashboard/main/analysis">
                                 Analysis
                             </Link>
                         </Typography>
                         <Typography
                             as="li"
-                            className={`font-medium w-full flex justify-start ${path === 'students' ? "bg-[#2e2e2e] text-white" : "hover:bg-[#272525] text-[#B0B0B0]"}`}
+                            className={`font-medium w-full flex justify-start ${path === 'mainstudents' ? "bg-[#2e2e2e] text-white" : "hover:bg-[#272525] text-[#B0B0B0]"}`}
                         >
-                            <Link className="w-full px-8 py-3" to="/dashboard/mainstudents">
+                            <Link className="w-full px-8 py-3" to="/dashboard/main/mainstudents">
                                 Students
                             </Link>
                         </Typography>
                         <Typography
                             as="li"
-                            className={`font-medium w-full flex justify-start ${path === 'rooms' ? "bg-[#2e2e2e] text-white" : "hover:bg-[#272525] text-[#B0B0B0]"}`}
+                            className={`font-medium w-full flex justify-start ${path === 'mainrooms' ? "bg-[#2e2e2e] text-white" : "hover:bg-[#272525] text-[#B0B0B0]"}`}
                         >
-                            <Link className="w-full px-8 py-3" to="/dashboard/rooms">
+                            <Link className="w-full px-8 py-3" to="/dashboard/main/mainrooms">
                                 Rooms
                             </Link>
                         </Typography>
                         <Typography
                             as="li"
-                            className={`font-medium w-full flex justify-start ${path === 'complaints' ? "bg-[#2e2e2e] text-white" : "hover:bg-[#272525] text-[#B0B0B0]"}`}
+                            className={`font-medium w-full flex justify-start ${path === 'maincomplaints' ? "bg-[#2e2e2e] text-white" : "hover:bg-[#272525] text-[#B0B0B0]"}`}
                         >
-                            <Link className="w-full px-8 py-3" to="/dashboard/complaints">
+                            <Link className="w-full px-8 py-3" to="/dashboard/main/maincomplaints">
                                 Complaints
                             </Link>
                         </Typography>
@@ -54,7 +54,7 @@ const SideBar = () => {
                             as="li"
                             className={`font-medium w-full flex justify-start ${path === 'occupancy' ? "bg-[#2e2e2e] text-white" : "hover:bg-[#272525] text-[#B0B0B0]"}`}
                         >
-                            <Link className="w-full px-8 py-3" to="/rooms/occupancy">
+                            <Link className="w-full px-8 py-3" to="/dashboard/rooms/occupancy">
                                 Occupancy
                             </Link>
                         </Typography>
@@ -62,7 +62,7 @@ const SideBar = () => {
                             as="li"
                             className={`font-medium w-full flex justify-start ${path === 'hostel' ? "bg-[#2e2e2e] text-white" : "hover:bg-[#272525] text-[#B0B0B0]"}`}
                         >
-                            <Link className="w-full px-8 py-3" to="/rooms/hostel">
+                            <Link className="w-full px-8 py-3" to="/dashboard/rooms/hostel">
                                 Hostel
                             </Link>
                         </Typography>
@@ -70,7 +70,7 @@ const SideBar = () => {
                             as="li"
                             className={`font-medium w-full flex justify-start ${path === 'rooms' ? "bg-[#2e2e2e] text-white" : "hover:bg-[#272525] text-[#B0B0B0]"}`}
                         >
-                            <Link className="w-full px-8 py-3" to="/rooms/rooms">
+                            <Link className="w-full px-8 py-3" to="/dashboard/rooms/rooms">
                                 Rooms
                             </Link>
                         </Typography>
@@ -78,7 +78,7 @@ const SideBar = () => {
                             as="li"
                             className={`font-medium w-full flex justify-start ${path === 'furniture' ? "bg-[#2e2e2e] text-white" : "hover:bg-[#272525] text-[#B0B0B0]"}`}
                         >
-                            <Link className="w-full px-8 py-3" to="/rooms/furniture">
+                            <Link className="w-full px-8 py-3" to="/dashboard/rooms/furniture">
                                 Furniture
                             </Link>
                         </Typography>
@@ -91,7 +91,7 @@ const SideBar = () => {
                             as="li"
                             className={`font-medium w-full flex justify-start ${path === 'manegestudents' ? "bg-[#2e2e2e] text-white" : "hover:bg-[#272525] text-[#B0B0B0]"}`}
                         >
-                            <Link className="w-full px-8 py-3" to="/students/manegestudents">
+                            <Link className="w-full px-8 py-3" to="/dashboard/students/manegestudents">
                                 Manage Students
                             </Link>
                         </Typography>
@@ -111,6 +111,27 @@ const SideBar = () => {
                                 Add Complaints
                             </Link>
                         </Typography> */}
+                    </ul>
+                }
+                {
+                    page === 'notice_board' &&
+                    <ul className="flex flex-col items-center">
+                        <Typography
+                            as="li"
+                            className={`font-medium w-full flex justify-start ${path === 'list' ? "bg-[#2e2e2e] text-white" : "hover:bg-[#272525] text-[#B0B0B0]"}`}
+                        >
+                            <Link className="w-full px-8 py-3" to="/dashboard/notice_board/list">
+                                Notice List
+                            </Link>
+                        </Typography>
+                        <Typography
+                            as="li"
+                            className={`font-medium w-full flex justify-start ${path === 'addnotice' ? "bg-[#2e2e2e] text-white" : "hover:bg-[#272525] text-[#B0B0B0]"}`}
+                        >
+                            <Link className="w-full px-8 py-3" to="/dashboard/notice_board/addnotice">
+                                Add Notice
+                            </Link>
+                        </Typography>
                     </ul>
                 }
             </div>

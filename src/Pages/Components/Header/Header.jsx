@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
     Navbar,
     Button,
@@ -7,8 +7,11 @@ import {
     IconButton,
 } from "@material-tailwind/react";
 import { Link, useLocation } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 export function Header() {
+
+    const { logOut } = useContext(AuthContext);
     const [openNav, setOpenNav] = React.useState(false);
 
     React.useEffect(() => {
@@ -84,6 +87,15 @@ export function Header() {
                                 Notice Board
                             </Link>
                         </Typography>
+                        <Typography
+                            as="li"
+                            color="text-[#B0B0B0]"
+                            className={`p-1 font-medium rounded-xl  ${basePath === 'complaints' ? "shadow-inner shadow-white" : "hover:bg-[#111111]"}`}
+                        >
+                            <Link to='/complaints' className="flex items-center px-4">
+                                Complaints Box
+                            </Link>
+                        </Typography>
                     </>
             }
         </ul>
@@ -104,9 +116,10 @@ export function Header() {
                     <div className="flex items-center gap-4">
                         <div className="flex items-center gap-x-1">
                             <Button
-                                variant="gradient"
                                 size="sm"
+                                variant="gradient"
                                 className="hidden lg:inline-block"
+                                onClick={logOut}
                             >
                                 <span>Sign Out</span>
                             </Button>

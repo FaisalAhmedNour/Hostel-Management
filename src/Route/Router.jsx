@@ -19,6 +19,10 @@ import AddComplaints from "../Pages/Students/AddComplaints/AddComplaints";
 import Main from "../Layout/Main/Main";
 import Home from "../Pages/Home/Home";
 import MainNoticeBoard from "../Pages/MainNoticeBoard/MainNoticeBoard";
+import ComplaintsBox from "../Pages/Complaints/Complaints";
+import NoticeList from "../Pages/MainNoticeBoard/NoticeList/NoticeList";
+import AddNotice from "../Pages/MainNoticeBoard/AddNotice/AddNotice";
+import PrivateRoute from "./PrivateRoute";
 
 
 export const router = createBrowserRouter([
@@ -29,7 +33,15 @@ export const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />
-      }
+      },
+      {
+        path: '/complaints',
+        element: <PrivateRoute><ComplaintsBox /></PrivateRoute>
+      },
+      {
+        path: '/noticeBoard',
+        element: <NoticeList />
+      },
     ]
   },
   {
@@ -41,19 +53,19 @@ export const router = createBrowserRouter([
         element: <Dashboard />,
         children: [
           {
-            path: 'analysis',
+            path: 'main/analysis',
             element: <Analysis />
           },
           {
-            path: 'mainstudents',
+            path: 'main/mainstudents',
             element: <Students />
           },
           {
-            path: 'mainrooms',
+            path: 'main/mainrooms',
             element: <Rooms />
           },
           {
-            path: 'maincomplaints',
+            path: 'main/maincomplaints',
             element: <Complaints />
           },
         ]
@@ -100,7 +112,17 @@ export const router = createBrowserRouter([
       },
       {
         path: '/dashboard/notice_board',
-        element: <MainNoticeBoard />
+        element: <MainNoticeBoard />,
+        children: [
+          {
+            path: 'list',
+            element: <NoticeList />
+          },
+          {
+            path: 'addnotice',
+            element: <AddNotice />
+          },
+        ]
       },
     ],
   },

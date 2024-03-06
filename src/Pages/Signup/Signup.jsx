@@ -6,7 +6,7 @@ import {
     Select,
     Typography,
 } from "@material-tailwind/react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -14,6 +14,11 @@ import Swal from 'sweetalert2';
 
 const Signup = () => {
 
+    const [session, setSession] = useState('2023-2024')
+    const [semester, setSemester] = useState('1st')
+    const [department, setDepartment] = useState('')
+    const [hostel, setHostel] = useState('')
+    const [floor, setFloor] = useState('')
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { createUserWithPass, updateUser } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -21,18 +26,18 @@ const Signup = () => {
     const onSubmit = data => {
         createUserWithPass(data.email, data.password)
             .then(() => {
-                updateUser(data.name)
+                updateUser(data.name, "student",)
                     .then(() => {
                         const savedUser = {
                             name: data.name,
                             room: data.room,
                             role: "student",
                             email: data.email,
-                            batch: data.batch,
-                            floor: data.floor,
-                            hostel: data.hostel,
-                            semester: data.semester,
-                            department: data.department,
+                            session: session,
+                            floor: floor,
+                            hostel: hostel,
+                            semester: semester,
+                            department: department,
                             registration: data.registration,
                             image: data.image,
                         }
@@ -75,6 +80,8 @@ const Signup = () => {
                 })
             })
     };
+
+    console.log(session);
 
     return (
         <div className="flex justify-center items-center h-[90vh]">
@@ -134,19 +141,11 @@ const Signup = () => {
                             <Typography variant="h6" color="blue-gray" className="">
                                 Session
                             </Typography>
-                            {/* <Input
-                                type="text"
-                                size="sm"
-                                placeholder="nth"
-                                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-                                labelProps={{
-                                    className: "before:content-none after:content-none",
-                                }}
-                                {...register("batch", { required: true })}
-                            /> */}
                             <Select
                                 label="Select Session"
-                                {...register("batch", { required: true })}
+                                // {...register("session", { required: true })}
+                                value={session}
+                                onChange={(value) => setSession(value)}
                             >
                                 <Option value="2010-2011">2010-2011</Option>
                                 <Option value="2011-2012">2011-2012</Option>
@@ -162,25 +161,17 @@ const Signup = () => {
                                 <Option value="2022-2023">2022-2023</Option>
                                 <Option value="2023-2024">2023-2024</Option>
                             </Select>
-                            {errors.batch && <span className='text-[red] text-xs'>This field is required</span>}
+                            {/* {errors.session && <span className='text-[red] text-xs'>This field is required</span>} */}
                         </div>
                         <div>
                             <Typography variant="h6" color="blue-gray" className="">
                                 Semester
                             </Typography>
-                            {/* <Input
-                                type="text"
-                                size="sm"
-                                placeholder=""
-                                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-                                labelProps={{
-                                    className: "before:content-none after:content-none",
-                                }}
-                                {...register("semester", { required: true })}
-                            /> */}
                             <Select
                                 label="Select Semester"
-                                {...register("batch", { required: true })}
+                                onChange={(value) => setSemester(value)}
+                                value={semester}
+                                // {...register("semester", { required: true })}
                             >
                                 <Option value="1st">1st</Option>
                                 <Option value="2nd">2nd</Option>
@@ -191,31 +182,23 @@ const Signup = () => {
                                 <Option value="7th">7th</Option>
                                 <Option value="8th">8th</Option>
                             </Select>
-                            {errors.semester && <span className='text-[red] text-xs'>This field is required</span>}
+                            {/* {errors.semester && <span className='text-[red] text-xs'>This field is required</span>} */}
                         </div>
                         <div>
                             <Typography variant="h6" color="blue-gray" className="">
                                 Department
                             </Typography>
-                            {/* <Input
-                                type="text"
-                                size="sm"
-                                placeholder="nth"
-                                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-                                labelProps={{
-                                    className: "before:content-none after:content-none",
-                                }}
-                                {...register("department", { required: true })}
-                            /> */}
                             <Select
                                 label="Select Department"
-                                {...register("batch", { required: true })}
+                                onChange={(value) => setDepartment(value)}
+                                value={department}
+                                // {...register("department", { required: true })}
                             >
                                 <Option value="CSE">CSE</Option>
                                 <Option value="EEE">EEE</Option>
                                 <Option value="CE">CE</Option>
                             </Select>
-                            {errors.department && <span className='text-[red] text-xs'>This field is required</span>}
+                            {/* {errors.department && <span className='text-[red] text-xs'>This field is required</span>} */}
                         </div>
                         <div>
                             <Typography variant="h6" color="blue-gray" className="">
@@ -237,43 +220,27 @@ const Signup = () => {
                             <Typography variant="h6" color="blue-gray" className="">
                                 Hostel Name
                             </Typography>
-                            {/* <Input
-                                type="text"
-                                size="sm"
-                                placeholder=""
-                                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-                                labelProps={{
-                                    className: "before:content-none after:content-none",
-                                }}
-                                {...register("hostel", { required: true })}
-                            /> */}
                             <Select
                                 label="Select Hostel"
-                                {...register("batch", { required: true })}
+                                value={hostel}
+                                onChange={(value) => setHostel(value)}
+                                // {...register("hostel", { required: true })}
                             >
                                 <Option value="Hostel 1">Hostel 1</Option>
                                 <Option value="Hostel 2">Hostel 2</Option>
                                 <Option value="Hostel 3">Hostel 3</Option>
                             </Select>
-                            {errors.hostel && <span className='text-[red] text-xs'>This field is required</span>}
+                            {/* {errors.hostel && <span className='text-[red] text-xs'>This field is required</span>} */}
                         </div>
                         <div>
                             <Typography variant="h6" color="blue-gray" className="">
                                 Floor
                             </Typography>
-                            {/* <Input
-                                type="text"
-                                size="sm"
-                                placeholder="nth"
-                                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-                                labelProps={{
-                                    className: "before:content-none after:content-none",
-                                }}
-                                {...register("floor", { required: true })}
-                            /> */}
                             <Select
-                                label="Select Session"
-                                {...register("batch", { required: true })}
+                                label="Select Floor"
+                                value={floor}
+                                onChange={(value) => setFloor(value)}
+                                // {...register("batch", { required: true })}
                             >
                                 <Option value="1st">1st</Option>
                                 <Option value="2nd">2nd</Option>
@@ -281,7 +248,7 @@ const Signup = () => {
                                 <Option value="4th">4th</Option>
                                 <Option value="5th">5th</Option>
                             </Select>
-                            {errors.floor && <span className='text-[red] text-xs'>This field is required</span>}
+                            {/* {errors.floor && <span className='text-[red] text-xs'>This field is required</span>} */}
                         </div>
                         <div>
                             <Typography variant="h6" color="blue-gray" className="">
@@ -311,7 +278,7 @@ const Signup = () => {
                                 labelProps={{
                                     className: "before:content-none after:content-none",
                                 }}
-                                {...register("image", { required: true })}
+                                {...register("image", { required: false })}
                             />
                             {/* {errors.image && <span className='text-[red] text-xs'>This field is required</span>} */}
                         </div>

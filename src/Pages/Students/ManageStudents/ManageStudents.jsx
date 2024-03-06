@@ -150,7 +150,7 @@ const ManageStudents = () => {
                                             </td>
                                             <td className={classes}>
                                                 <div className="flex items-center gap-2 justify-center">
-                                                    <Link to={`/students/addcomplaints/${_id}`}>
+                                                    <Link to={`/dashboard/students/addcomplaints/${_id}`}>
                                                         <Button
                                                             size="sm"
                                                             color="red"

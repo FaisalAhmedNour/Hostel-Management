@@ -33,10 +33,10 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    const updateUser = (name, photo) => {
-        console.log(name, photo)
+    const updateUser = (name, role) => {
+        console.log(name, role)
         return updateProfile(auth.currentUser, {
-            displayName: `${name}`, photoURL: `${photo}`
+            displayName: `${name}`, phoneNumber: `${role}`
         })
     }
 
@@ -49,10 +49,11 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
-            axios.get(`https://camp-sportopia-server-faisalahmednour.vercel.app/users/${currentUser?.email}`)
+            console.log(currentUser);
+            axios.get(`http://localhost:5000/students/${currentUser?.email}`)
                 .then(res => {
-                    // console.log(res.data?.role)
-                    res.data?.role === 'admin' ? setIsAdmin(true) : res.data?.role === 'instructor' ? setIsInstructor(true) : '';
+                    console.log(res.data)
+                    res.data?.role === 'admin' ? setIsAdmin(true) : setIsInstructor(true);
                     setLoading(false)
                     // console.log('ok');
                 })
