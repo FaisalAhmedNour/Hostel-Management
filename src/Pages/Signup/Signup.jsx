@@ -81,7 +81,6 @@ const Signup = () => {
             })
     };
 
-
     return (
         <div className="flex justify-center items-center h-[90vh]">
             <Card color="white" shadow={false} className="p-5">
@@ -103,7 +102,7 @@ const Signup = () => {
                                 }}
                                 {...register("name", { required: true })}
                             />
-                            {errors.name && <span className='text-[red] text-xs'>This field is required</span>}
+                            {errors?.name && <span className='text-[red] text-xs'>This field is required</span>}
                         </div>
                         <div>
                             <Typography variant="h6" color="blue-gray" className="">
@@ -118,7 +117,7 @@ const Signup = () => {
                                 }}
                                 {...register("email", { required: true })}
                             />
-                            {errors.email && <span className='text-[red] text-xs'>This field is required</span>}
+                            {errors?.email && <span className='text-[red] text-xs'>This field is required</span>}
                         </div>
                         <div>
                             <Typography variant="h6" color="blue-gray" className="">
@@ -134,7 +133,7 @@ const Signup = () => {
                                 }}
                                 {...register("password", { required: true })}
                             />
-                            {errors.password && <span className='text-[red] text-xs'>This field is required</span>}
+                            {errors?.password && <span className='text-[red] text-xs'>This field is required</span>}
                         </div>
                         <div>
                             <Typography variant="h6" color="blue-gray" className="">
@@ -213,7 +212,7 @@ const Signup = () => {
                                 }}
                                 {...register("registration", { required: true })}
                             />
-                            {errors.registration && <span className='text-[red] text-xs'>This field is required</span>}
+                            {errors?.registration && <span className='text-[red] text-xs'>This field is required</span>}
                         </div>
                         <div>
                             <Typography variant="h6" color="blue-gray" className="">
@@ -263,7 +262,7 @@ const Signup = () => {
                                 }}
                                 {...register("room", { required: true })}
                             />
-                            {errors.room && <span className='text-[red] text-xs'>This field is required</span>}
+                            {errors?.room && <span className='text-[red] text-xs'>This field is required</span>}
                         </div>
                         <div className="col-span-2">
                             <Typography variant="h6" color="blue-gray" className="">
