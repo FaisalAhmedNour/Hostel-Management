@@ -279,7 +279,6 @@ const Signup = () => {
                                 }}
                                 {...register("image", { required: false })}
                             />
-                            {/* {errors.image && <span className='text-[red] text-xs'>This field is required</span>} */}
                         </div>
                     </div>
                     <Button type="submit" className="mt-6 col-span-2" fullWidth>
