@@ -40,13 +40,13 @@ export const router = createBrowserRouter([
       },
       {
         path: '/noticeBoard',
-        element: <NoticeList />
+        element: <PrivateRoute><NoticeList /></PrivateRoute>
       },
     ]
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
     children: [
       {
         path: '/dashboard',

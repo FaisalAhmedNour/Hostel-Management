@@ -21,8 +21,8 @@ const Signin = () => {
     const { signInUserWithPass } = useContext(AuthContext);
 
     const onSubmit = data => {
-        console.log(data);
-        console.log(data.email, data.password)
+        // console.log(data);
+        // console.log(data.email, data.password)
         signInUserWithPass(data.email, data.password)
             .then(() => {
                 Swal.fire({
@@ -32,7 +32,12 @@ const Signin = () => {
                     showConfirmButton: false,
                     timer: 1500
                 })
-                navigate(from, { replace: true });
+                if (data.email === 'admin@gmail.com') {
+                    navigate('/dashboard');
+                }
+                else {
+                    navigate('/');
+                }
             })
             .catch(error => {
                 const errorMessage = error.message;

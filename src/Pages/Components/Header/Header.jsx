@@ -11,7 +11,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 
 export function Header() {
 
-    const { logOut } = useContext(AuthContext);
+    const { logOut, user } = useContext(AuthContext);
     const [openNav, setOpenNav] = React.useState(false);
 
     React.useEffect(() => {
@@ -34,7 +34,7 @@ export function Header() {
                         <Typography
                             as="li"
                             color="text-[#B0B0B0]"
-                            className={`p-1 font-medium rounded-xl  ${path === 'analysis' ? " shadow-inner shadow-white" : "hover:bg-[#111111] "}`}
+                            className={`p-1 font-medium rounded-xl  ${path === 'main' ? " shadow-inner shadow-white" : "hover:bg-[#111111] "}`}
                         >
                             <Link to='/dashboard' className="flex items-center px-4">
                                 Dashboard
@@ -115,14 +115,27 @@ export function Header() {
                     <div className="mr-4 hidden lg:block">{navList}</div>
                     <div className="flex items-center gap-4">
                         <div className="flex items-center gap-x-1">
-                            <Button
-                                size="sm"
-                                variant="gradient"
-                                className="hidden lg:inline-block"
-                                onClick={logOut}
-                            >
-                                <span>Sign Out</span>
-                            </Button>
+                            {
+                                user === null ?
+                                    <Link to={"/signin"}>
+                                        <Button
+                                            fullWidth
+                                            variant="gradient"
+                                            size="sm"
+                                            className=""
+                                        >
+                                            <span>Log In</span>
+                                        </Button>
+                                    </Link> :
+                                    <Button
+                                        size="sm"
+                                        variant="gradient"
+                                        className="hidden lg:inline-block"
+                                        onClick={logOut}
+                                    >
+                                        <span>Log Out</span>
+                                    </Button>
+                            }
                         </div>
                         <IconButton
                             variant="text"
@@ -166,12 +179,34 @@ export function Header() {
                 <MobileNav open={openNav}>
                     {navList}
                     <div className="flex items-center gap-x-1">
-                        <Button fullWidth variant="text" size="sm" className="">
+                        {
+                            user === null ?
+                                <Link to={"/signin"}>
+                                    <Button
+                                        fullWidth
+                                        variant="gradient"
+                                        size="sm"
+                                        className=""
+                                    >
+                                        <span>Log in</span>
+                                    </Button>
+                                </Link> :
+                                <Button
+                                    onClick={logOut}
+                                    fullWidth
+                                    variant="gradient"
+                                    size="sm"
+                                    className=""
+                                >
+                                    <span>Log out</span>
+                                </Button>
+                        }
+                        {/* <Button fullWidth variant="text" size="sm" className="">
                             <span>Log In</span>
                         </Button>
                         <Button fullWidth variant="gradient" size="sm" className="">
                             <span>Sign in</span>
-                        </Button>
+                        </Button> */}
                     </div>
                 </MobileNav>
             </Navbar>

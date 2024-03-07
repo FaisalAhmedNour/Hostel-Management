@@ -2,7 +2,7 @@ import { Typography, Card, Button } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const TABLE_HEAD = ["Name", "Batch", "Department", "Semester", "Registration", "Hostel", "Floor", "Room"];
+const TABLE_HEAD = ["Name", "Session", "Department", "Semester", "Registration", "Hostel", "Floor", "Room"];
 
 const ManageStudents = () => {
 
@@ -60,6 +60,17 @@ const ManageStudents = () => {
                                     <Typography
                                         variant="small"
                                         color="blue-gray"
+                                        className="font-normal text-white leading-none opacity-70"
+                                    >
+                                        Due
+                                    </Typography>
+                                </th>
+                                <th
+                                    className="border-b border-blue-gray-100 p-4"
+                                >
+                                    <Typography
+                                        variant="small"
+                                        color="blue-gray"
                                         className="font-normal text-white leading-none opacity-70 text-center"
                                     >
                                         Action
@@ -70,7 +81,7 @@ const ManageStudents = () => {
                         <tbody>
                             {
                                 students &&
-                                students?.map(({ _id, name, batch, department, semester, registration, hostel, floor, room }, index) => {
+                                students?.map(({ _id, name, session, department, semester, registration, hostel, floor, room }, index) => {
                                     const isLast = index === students.length - 1;
                                     const classes = isLast ? "p-4 bg-[#111111]" : "p-4 border-b border-blue-gray-50 bg-[#111111]";
 
@@ -91,7 +102,7 @@ const ManageStudents = () => {
                                                     color="blue-gray"
                                                     className="font-normal text-white"
                                                 >
-                                                    {batch}
+                                                    {session}
                                                 </Typography>
                                             </td>
                                             <td className={classes}>
@@ -146,6 +157,15 @@ const ManageStudents = () => {
                                                     className="font-normal text-white"
                                                 >
                                                     {room}
+                                                </Typography>
+                                            </td>
+                                            <td className={classes}>
+                                                <Typography
+                                                    variant="small"
+                                                    color="blue-gray"
+                                                    className="font-normal text-white"
+                                                >
+                                                    800 BDT
                                                 </Typography>
                                             </td>
                                             <td className={classes}>

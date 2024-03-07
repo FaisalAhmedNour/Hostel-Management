@@ -60,7 +60,7 @@ const Signup = () => {
                                         showConfirmButton: false,
                                         timer: 1500
                                     })
-                                    navigate('/dashboard');
+                                    navigate('/');
                                 }
                             })
                     })
@@ -81,7 +81,6 @@ const Signup = () => {
             })
     };
 
-    console.log(session);
 
     return (
         <div className="flex justify-center items-center h-[90vh]">

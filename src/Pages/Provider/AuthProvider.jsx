@@ -18,10 +18,10 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
 
-    const [user, setUser] = useState(null)
-    const [loading, setLoading] = useState(true)
-    const [isAdmin, setIsAdmin] = useState(false)
-    const [isInstructor, setIsInstructor] = useState(false)
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [isAdmin, setIsAdmin] = useState(false);
+    const [isInstructor, setIsInstructor] = useState(false);
 
     const createUserWithPass = (email, password) => {
         setLoading(true)

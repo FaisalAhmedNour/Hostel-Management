@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 
 const Complaints = () => {
 
-    const [allFines, setAllFines] = useState([]);
     const [fines, setFines] = useState([]);
     const [complaints, setComplaints] = useState([]);
+    const [allFines, setAllFines] = useState([]);
     const [allComplaints, setAllComplaints] = useState([]);
+    const [complaintsCount, setComplaintsCount] = useState(0);
+    const [fineCount, setFineCount] = useState(0);
     const [reload, setReload] = useState(false);
 
     useEffect(() => {
@@ -21,6 +23,8 @@ const Complaints = () => {
                 console.log(result);
                 setFines(result);
                 setAllFines(result);
+                const unresolvedComplaintsCount = result.filter(fine => !fine.received).length;
+                setComplaintsCount(unresolvedComplaintsCount)
             })
     }
 
@@ -50,6 +54,8 @@ const Complaints = () => {
                 console.log(result);
                 setComplaints(result);
                 setAllComplaints(result);
+                const unresolvedComplaintsCount = result.filter(complaint => !complaint.solved).length;
+                setFineCount(unresolvedComplaintsCount)
             })
     }
 
@@ -84,24 +90,21 @@ const Complaints = () => {
         <div className="mb-2 grid grid-cols-4">
             <div className='col-span-3'>
                 <div className='bg-[#2e2e2e] rounded-md p-2 mt-2 grid grid-cols-4 gap-5'>
-                    <div className='bg-[#111111] rounded-lg grid grid-cols-3 overflow-hidden'>
-                        {/* todo: make the ratio */}
-                        <div className='bg-[#00FFF5] col-span-2'></div>
-                        <div className='bg-[#FFE605] '></div>
+                    <div className='bg-[#111111] rounded-lg flex  overflow-hidden'>
+                        <div className={`bg-[#00FFF5] w-[${((allComplaints.length + allFines.length - complaintsCount - fineCount) / (allComplaints.length + allFines.length)) * 100}%]`}></div>
+                        <div className={`bg-[#FFE605] w-[${(((complaintsCount + fineCount) / (allComplaints.length + allFines.length)) * 100)}%]`}></div>
                     </div>
                     <div className='bg-[#111111] px-3 py-1 rounded-lg'>
                         <p className='text-white text-sm flex gap-1'>Total Complaints</p>
-                        <p className='text-xl text-white'>{complaints.length + fines.length}</p>
+                        <p className='text-xl text-white'>{allComplaints.length + allFines.length}</p>
                     </div>
                     <div className='bg-[#111111] px-3 py-1 rounded-lg'>
-                        {/* TODO: resolved count */}
                         <p className='text-white text-sm flex gap-1'>Resolved</p>
-                        <p className='text-xl text-[#00FFF5]'>96</p>
+                        <p className='text-xl text-[#00FFF5]'>{allComplaints.length + allFines.length - complaintsCount - fineCount}</p>
                     </div>
                     <div className='bg-[#111111] px-3 py-1 rounded-lg'>
                         <p className='text-white text-sm flex gap-1'>Open</p>
-                        {/* TODO: open count */}
-                        <p className='text-xl text-[#FFE605]'>62</p>
+                        <p className='text-xl text-[#FFE605]'>{complaintsCount + fineCount}</p>
                     </div>
                 </div>
                 <div className="grid grid-cols-2 gap-2">
@@ -191,6 +194,7 @@ const Complaints = () => {
                                                     src="https://docs.material-tailwind.com/img/face-2.jpg"
                                                 />
                                             </div>
+                                            <div className="flex-grow text-white">{complaint?.userName}</div>
                                             {
                                                 complaint?.received ?
                                                     <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check text-[green]"><path d="M20 6 9 17l-5-5" /></svg></div> :

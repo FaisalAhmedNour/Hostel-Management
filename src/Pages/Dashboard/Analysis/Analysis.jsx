@@ -1,7 +1,43 @@
+import { useEffect, useState } from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 const Analysis = () => {
+
+    const [allFines, setAllFines] = useState([]);
+    const [allComplaints, setAllComplaints] = useState([]);
+    const [complaintsCount, setComplaintsCount] = useState(0);
+    const [fineCount, setFineCount] = useState(0);
+
+    useEffect(() => {
+        getFines();
+        getComplaints();
+    }, [])
+
+    const getFines = () => {
+        fetch('http://localhost:5000/fines')
+            .then(data => data.json())
+            .then(result => {
+                console.log(result);
+                // setFines(result);
+                setAllFines(result);
+                const unresolvedComplaintsCount = result.filter(fine => !fine.received).length;
+                setComplaintsCount(unresolvedComplaintsCount)
+            })
+    }
+
+    const getComplaints = () => {
+        fetch('http://localhost:5000/complaints')
+            .then(data => data.json())
+            .then(result => {
+                console.log(result);
+                // setComplaints(result);
+                setAllComplaints(result);
+                const unresolvedComplaintsCount = result.filter(complaint => !complaint.solved).length;
+                setFineCount(unresolvedComplaintsCount)
+            })
+    }
+
     return (
         <div className="my-2 grid grid-cols-4">
             <div className='col-span-3'>
@@ -122,21 +158,21 @@ const Analysis = () => {
                     </div>
                 </div>
                 <div className='bg-[#2e2e2e] rounded-md p-2 mt-2 grid grid-cols-4 gap-5'>
-                    <div className='bg-[#111111] rounded-lg grid grid-cols-3 overflow-hidden'>
-                        <div className='bg-[#00FFF5] col-span-2'></div>
-                        <div className='bg-[#FFE605] '></div>
+                    <div className='bg-[#111111] rounded-lg flex  overflow-hidden'>
+                        <div className={`bg-[#00FFF5] w-[${((allComplaints.length + allFines.length - complaintsCount - fineCount) / (allComplaints.length + allFines.length)) * 100}%]`}></div>
+                        <div className={`bg-[#FFE605] w-[${(((complaintsCount + fineCount) / (allComplaints.length + allFines.length)) * 100)}%]`}></div>
                     </div>
                     <div className='bg-[#111111] px-3 py-1 rounded-lg'>
-                        <p className='text-white text-sm flex gap-1'>Total Complaint</p>
-                        <p className='text-xl text-white'>158</p>
+                        <p className='text-white text-sm flex gap-1'>Total Complaints</p>
+                        <p className='text-xl text-white'>{allComplaints.length + allFines.length}</p>
                     </div>
                     <div className='bg-[#111111] px-3 py-1 rounded-lg'>
-                        <p className='text-white text-sm flex gap-1'>Resolve</p>
-                        <p className='text-xl text-[#00FFF5]'>96</p>
+                        <p className='text-white text-sm flex gap-1'>Resolved</p>
+                        <p className='text-xl text-[#00FFF5]'>{allComplaints.length + allFines.length - complaintsCount - fineCount}</p>
                     </div>
                     <div className='bg-[#111111] px-3 py-1 rounded-lg'>
-                        <p className='text-white text-sm flex gap-1'>Ope</p>
-                        <p className='text-xl text-[#FFE605]'>62</p>
+                        <p className='text-white text-sm flex gap-1'>Open</p>
+                        <p className='text-xl text-[#FFE605]'>{complaintsCount + fineCount}</p>
                     </div>
                 </div>
             </div>
