@@ -15,7 +15,7 @@ const Analysis = () => {
     }, [])
 
     const getFines = () => {
-        fetch('http://localhost:5000/fines')
+        fetch('https://hostel-management-backend-pi.vercel.app/fines')
             .then(data => data.json())
             .then(result => {
                 console.log(result);
@@ -27,7 +27,7 @@ const Analysis = () => {
     }
 
     const getComplaints = () => {
-        fetch('http://localhost:5000/complaints')
+        fetch('https://hostel-management-backend-pi.vercel.app/complaints')
             .then(data => data.json())
             .then(result => {
                 console.log(result);

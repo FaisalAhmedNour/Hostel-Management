@@ -14,11 +14,11 @@ import Swal from 'sweetalert2';
 
 const Signup = () => {
 
-    const [session, setSession] = useState('2023-2024')
-    const [semester, setSemester] = useState('1st')
-    const [department, setDepartment] = useState('')
-    const [hostel, setHostel] = useState('')
-    const [floor, setFloor] = useState('')
+    const [session, setSession] = useState('2023-2024');
+    const [semester, setSemester] = useState('1st');
+    const [department, setDepartment] = useState('');
+    const [hostel, setHostel] = useState('');
+    const [floor, setFloor] = useState('');
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { createUserWithPass, updateUser } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -41,7 +41,7 @@ const Signup = () => {
                             registration: data.registration,
                             image: data.image,
                         }
-                        fetch('http://localhost:5000/students', {
+                        fetch('https://hostel-management-backend-pi.vercel.app/students', {
                             method: "POST",
                             headers: {
                                 "content-type": "application/json"
@@ -170,7 +170,7 @@ const Signup = () => {
                                 label="Select Semester"
                                 onChange={(value) => setSemester(value)}
                                 value={semester}
-                                // {...register("semester", { required: true })}
+                            // {...register("semester", { required: true })}
                             >
                                 <Option value="1st">1st</Option>
                                 <Option value="2nd">2nd</Option>
@@ -191,7 +191,7 @@ const Signup = () => {
                                 label="Select Department"
                                 onChange={(value) => setDepartment(value)}
                                 value={department}
-                                // {...register("department", { required: true })}
+                            // {...register("department", { required: true })}
                             >
                                 <Option value="CSE">CSE</Option>
                                 <Option value="EEE">EEE</Option>
@@ -223,7 +223,7 @@ const Signup = () => {
                                 label="Select Hostel"
                                 value={hostel}
                                 onChange={(value) => setHostel(value)}
-                                // {...register("hostel", { required: true })}
+                            // {...register("hostel", { required: true })}
                             >
                                 <Option value="Hostel 1">Hostel 1</Option>
                                 <Option value="Hostel 2">Hostel 2</Option>
@@ -239,7 +239,7 @@ const Signup = () => {
                                 label="Select Floor"
                                 value={floor}
                                 onChange={(value) => setFloor(value)}
-                                // {...register("batch", { required: true })}
+                            // {...register("batch", { required: true })}
                             >
                                 <Option value="1st">1st</Option>
                                 <Option value="2nd">2nd</Option>

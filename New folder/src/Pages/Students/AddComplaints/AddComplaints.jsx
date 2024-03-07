@@ -18,7 +18,7 @@ const AddComplaints = () => {
         const fineAmount = e.target.fineAmount.value;
         console.log(description, fineAmount);
 
-        fetch(`http://localhost:5000/fines/${id}`, {
+        fetch(`https://hostel-management-backend-pi.vercel.app/fines/${id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -14,7 +14,7 @@ const ManageStudents = () => {
     }, [reload])
 
     const getStudents = () => {
-        fetch('http://localhost:5000/students')
+        fetch('https://hostel-management-backend-pi.vercel.app/students')
             .then(data => data.json())
             .then(result => {
                 console.log(result);
@@ -24,7 +24,7 @@ const ManageStudents = () => {
 
     const handleDeleteStudents = (id) => {
         console.log(id);
-        fetch(`http://localhost:5000/students/delete/${id}`,)
+        fetch(`https://hostel-management-backend-pi.vercel.app/students/delete/${id}`,)
             .then(data => data.json())
             .then(result => {
                 console.log(result);

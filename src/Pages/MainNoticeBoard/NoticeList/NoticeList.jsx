@@ -10,7 +10,7 @@ const NoticeList = () => {
     }, [])
 
     const getNotices = () => {
-        fetch('http://localhost:5000/notices')
+        fetch('https://hostel-management-backend-pi.vercel.app/notices')
             .then(data => data.json())
             .then(result => {
                 console.log(result);

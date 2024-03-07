@@ -12,7 +12,7 @@ const AddNotice = () => {
         const description = e.target.description.value;
         console.log(description);
 
-        fetch(`http://localhost:5000/notices`, {
+        fetch(`https://hostel-management-backend-pi.vercel.app/notices`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

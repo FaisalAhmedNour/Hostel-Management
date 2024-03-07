@@ -36,7 +36,7 @@ const Signup = () => {
                             registration: data.registration,
                             image: data.image,
                         }
-                        fetch('http://localhost:5000/students', {
+                        fetch('https://hostel-management-backend-pi.vercel.app/students', {
                             method: "POST",
                             headers: {
                                 "content-type": "application/json"

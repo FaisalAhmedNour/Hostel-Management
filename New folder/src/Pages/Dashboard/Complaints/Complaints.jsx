@@ -15,7 +15,7 @@ const Complaints = () => {
     }, [reload])
 
     const getFines = () => {
-        fetch('http://localhost:5000/fines')
+        fetch('https://hostel-management-backend-pi.vercel.app/fines')
             .then(data => data.json())
             .then(result => {
                 console.log(result);
@@ -25,7 +25,7 @@ const Complaints = () => {
     }
 
     const handleReceive = (id) => {
-        fetch(`http://localhost:5000/fines/received/${id}`,)
+        fetch(`https://hostel-management-backend-pi.vercel.app/fines/received/${id}`,)
             .then(data => data.json())
             .then(result => {
                 console.log(result);
@@ -35,7 +35,7 @@ const Complaints = () => {
 
     const handleDeleteFines = (id) => {
         console.log(id);
-        fetch(`http://localhost:5000/fines/delete/${id}`,)
+        fetch(`https://hostel-management-backend-pi.vercel.app/fines/delete/${id}`,)
             .then(data => data.json())
             .then(result => {
                 console.log(result);
@@ -44,7 +44,7 @@ const Complaints = () => {
     }
 
     const getComplaints = () => {
-        fetch('http://localhost:5000/complaints')
+        fetch('https://hostel-management-backend-pi.vercel.app/complaints')
             .then(data => data.json())
             .then(result => {
                 console.log(result);
@@ -54,7 +54,7 @@ const Complaints = () => {
     }
 
     const handleSolve = (id) => {
-        fetch(`http://localhost:5000/complaints/solved/${id}`,)
+        fetch(`https://hostel-management-backend-pi.vercel.app/complaints/solved/${id}`,)
             .then(data => data.json())
             .then(result => {
                 console.log(result);
@@ -64,7 +64,7 @@ const Complaints = () => {
 
     const handleDeleteComplaints = (id) => {
         console.log(id);
-        fetch(`http://localhost:5000/complaints/delete/${id}`,)
+        fetch(`https://hostel-management-backend-pi.vercel.app/complaints/delete/${id}`,)
             .then(data => data.json())
             .then(result => {
                 console.log(result);

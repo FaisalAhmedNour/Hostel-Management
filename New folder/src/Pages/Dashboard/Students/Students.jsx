@@ -15,7 +15,7 @@ const Students = () => {
     }, [])
 
     const getStudents = () => {
-        fetch('http://localhost:5000/students')
+        fetch('https://hostel-management-backend-pi.vercel.app/students')
             .then(data => data.json())
             .then(result => {
                 console.log(result);

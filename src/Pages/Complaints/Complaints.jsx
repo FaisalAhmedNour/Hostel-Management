@@ -19,7 +19,7 @@ const ComplaintsBox = () => {
         const description = e.target.description.value;
         console.log(description);
 
-        fetch(`http://localhost:5000/complaints`, {
+        fetch(`https://hostel-management-backend-pi.vercel.app/complaints`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -50,7 +50,7 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
             console.log(currentUser);
-            axios.get(`http://localhost:5000/students/${currentUser?.email}`)
+            axios.get(`https://hostel-management-backend-pi.vercel.app/students/${currentUser?.email}`)
                 .then(res => {
                     console.log(res.data)
                     res.data?.role === 'admin' ? setIsAdmin(true) : setIsInstructor(true);
