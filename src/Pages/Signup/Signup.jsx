@@ -95,7 +95,7 @@ const Signup = () => {
                                 Your Name
                             </Typography>
                             <Input
-                                size="sm"
+                                // size="sm"
                                 placeholder="name"
                                 className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
                                 labelProps={{
@@ -110,7 +110,7 @@ const Signup = () => {
                                 Your Email
                             </Typography>
                             <Input
-                                size="sm"
+                                // size="sm"
                                 placeholder="name@mail.com"
                                 className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
                                 labelProps={{
@@ -126,7 +126,7 @@ const Signup = () => {
                             </Typography>
                             <Input
                                 type="password"
-                                size="sm"
+                                // size="sm"
                                 placeholder="********"
                                 className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
                                 labelProps={{
@@ -205,7 +205,7 @@ const Signup = () => {
                             </Typography>
                             <Input
                                 type="text"
-                                size="sm"
+                                // size="sm"
                                 placeholder=""
                                 className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
                                 labelProps={{
@@ -255,7 +255,7 @@ const Signup = () => {
                             </Typography>
                             <Input
                                 type="text"
-                                size="sm"
+                                // size="sm"
                                 placeholder=""
                                 className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
                                 labelProps={{
@@ -271,7 +271,7 @@ const Signup = () => {
                             </Typography>
                             <Input
                                 type="text"
-                                size="sm"
+                                // size="sm"
                                 placeholder="Paste image link"
                                 className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
                                 labelProps={{
