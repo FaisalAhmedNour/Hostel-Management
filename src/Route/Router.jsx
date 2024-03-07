@@ -127,11 +127,11 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: 'signin',
+    path: '/signin',
     element: <Signin />
   },
   {
-    path: 'signup',
+    path: '/signup',
     element: <Signup />
   },
 ]);
